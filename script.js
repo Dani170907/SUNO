@@ -1,13 +1,26 @@
-// ===== SMOOTH SCROLL EFFECT =====
+// ===== SMOOTH SCROLL EFFECT & NAVBAR ACTIVE CLASS TOGGLE (ON CLICK) =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', e => {
     e.preventDefault();
+    
+    // --- 1. LOGIKA UNTUK MENGATUR CLASS ACTIVE SAAT DI-KLIK ---
+    // Hapus kelas 'active' dari semua tautan
+    document.querySelectorAll('.navbar a').forEach(link => {
+      link.classList.remove('active');
+    });
+
+    // Tambahkan kelas 'active' ke tautan yang baru saja diklik
+    anchor.classList.add('active');
+    // ----------------------------------------------------------
+
+    // Lakukan smooth scroll
     document.querySelector(anchor.getAttribute('href')).scrollIntoView({
       behavior: 'smooth',
       block: 'start'
     });
   });
 });
+
 
 // ===== HERO FADE-IN & PARALLAX =====
 window.addEventListener('load', () => {
@@ -31,6 +44,35 @@ window.addEventListener('scroll', () => {
     hero.style.backgroundPositionY = `${offset}px`;
   }
 });
+
+// ===== SCROLL SPY NAVBAR ACTIVE (Logika untuk memindahkan status aktif saat scrolling) =====
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.navbar ul li a');
+
+window.addEventListener('scroll', () => {
+    let current = 'home'; // Default ke 'home'
+
+    sections.forEach(section => {
+        // Dapatkan posisi vertikal (top) dari setiap section
+        const sectionTop = section.offsetTop;
+        const sectionId = section.getAttribute('id');
+        
+        // Cek jika posisi scroll sudah melewati section, dikurangi offset 100px (tinggi navbar + margin)
+        if (window.scrollY >= sectionTop - 100) { 
+            current = sectionId;
+        }
+    });
+
+    // Pindahkan class active berdasarkan section yang sedang terlihat
+    navLinks.forEach(a => {
+        a.classList.remove('active');
+        // Tautan harus memiliki href yang sama dengan ID section yang sedang aktif
+        if (a.getAttribute('href').substring(1) === current) {
+            a.classList.add('active');
+        }
+    });
+});
+
 
 // ===== INTERSECTION OBSERVER SCROLL REVEAL =====
 const revealElements = document.querySelectorAll(

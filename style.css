@@ -123,7 +123,7 @@ body {
 .about-section {
   background: #0a0a0a;
   color: #fff;
-  padding: 100px 10%;
+  padding: 100px 10% ;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -204,13 +204,21 @@ body {
 
 /* ===== TEAM ===== */
 .team {
-  padding: 40px 10%;
+  padding: 20px 10% 80px 10%;
   background: #131316;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 50px;
+}
+
+.team h2 {
+  font-size: 2.2rem; 
+  font-weight: 700;
+  color: #ff8800;
+  text-shadow: 0 0 10px rgba(255, 136, 0, 0.8);
+  margin-bottom: 1px;
 }
 
 .team-mentor {
@@ -284,14 +292,22 @@ body {
 
 .member p {
   color: #ffdfbf;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
 }
 
 /* ===== OUR MEMORIES ===== */
 .memories {
-  padding: 80px 10%;
+  padding: 20px 10% 80px 10%;
   background: #0f0f11;
   text-align: center;
+}
+
+.memories .section-heading {
+  font-size: 2.2rem; 
+  font-weight: 700;
+  color: #ff8800;
+  text-shadow: 0 0 10px rgba(255, 136, 0, 0.8);
+  margin-bottom: 40px;
 }
 
 .memories-grid {
@@ -332,6 +348,7 @@ body {
   margin: 15px 0;
   text-shadow: 0 0 12px var(--orange-strong);
 }
+
 
 /* ===== POPUP MODAL ===== */
 .popup-overlay {
