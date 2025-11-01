@@ -586,6 +586,20 @@ footer {
   .memory-info p {
     font-size: 1rem;
   }
+
+  /* ==================================================== */
+  /* ===== KODE PERBAIKAN FINAL DI SINI ===== */
+  /* ==================================================== */
+  
+  /* Selector ini akan menargetkan SEMUA gambar anggota 
+     (termasuk mentor) di dalam section .team saat mobile */
+  .team .member img {
+    width: 100% !important; 
+    height: 220px !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important; /* Memaksa gambar untuk tampil */
+  }
 }
 
 /* ===== REVEAL ANIMATION ===== */
